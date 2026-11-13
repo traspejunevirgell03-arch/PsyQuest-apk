@@ -1,0 +1,189 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Authenticated PsyQuest user profile with display info, compressed avatar, and streak summary.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Firebase Auth UID of the owner." },
+        "displayName": { "type": "string", "description": "User display name." },
+        "handle": { "type": "string", "description": "Public handle without @ prefix." },
+        "bio": { "type": "string", "description": "Short personal bio or wellness goal." },
+        "avatarBase64": { "type": "string", "description": "Optional compressed JPEG avatar encoded in Base64." },
+        "currentStreak": { "type": "integer", "description": "Current consecutive check-in streak days." },
+        "longestStreak": { "type": "integer", "description": "Longest achieved consecutive check-in streak." },
+        "totalCheckIns": { "type": "integer", "description": "Total lifetime daily check-ins." },
+        "lastCheckInDate": { "type": "string", "description": "ISO date (YYYY-MM-DD) of latest check-in." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp of profile creation." },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Server timestamp of latest update." }
+      },
+      "required": ["userId", "displayName", "handle", "currentStreak", "longestStreak", "totalCheckIns", "createdAt"]
+    },
+    "FreedomWallPost": {
+      "title": "FreedomWallPost",
+      "description": "Community post on the PsyQuest Freedom Wall.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Author Firebase Auth UID." },
+        "authorName": { "type": "string", "description": "Author display name snapshot." },
+        "authorMeta": { "type": "string", "description": "Author handle or location." },
+        "authorAvatarBase64": { "type": "string", "description": "Optional author avatar Base64 snapshot." },
+        "category": {
+          "type": "string",
+          "enum": [
+            "PERSONAL_THOUGHTS",
+            "POSITIVE_AFFIRMATIONS",
+            "PSYCHOLOGY_FACTS",
+            "MENTAL_HEALTH_AWARENESS",
+            "STUDENT_EXPERIENCES"
+          ],
+          "description": "Educational or reflective post category."
+        },
+        "visibility": {
+          "type": "string",
+          "enum": ["PUBLIC", "FRIENDS"],
+          "description": "Feed visibility scope."
+        },
+        "bodyText": { "type": "string", "description": "Post body or caption text." },
+        "imageBase64": { "type": "string", "description": "Optional compressed JPEG photo attached to post." },
+        "quoteHighlight": { "type": "string", "description": "Optional highlighted quote or insight box." },
+        "likeCount": { "type": "integer", "description": "Aggregate like counter." },
+        "commentCount": { "type": "integer", "description": "Aggregate comment counter." },
+        "shareCount": { "type": "integer", "description": "Aggregate share counter." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp when published." },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Server timestamp of latest update." }
+      },
+      "required": ["userId", "authorName", "category", "visibility", "bodyText", "likeCount", "commentCount", "shareCount", "createdAt"]
+    },
+    "PostLike": {
+      "title": "PostLike",
+      "description": "Per-user like marker on a Freedom Wall post.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "UID of the user who liked the post." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp." }
+      },
+      "required": ["userId", "createdAt"]
+    },
+    "PostComment": {
+      "title": "PostComment",
+      "description": "Comment on a Freedom Wall post.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Author UID." },
+        "postId": { "type": "string", "description": "Parent post document ID." },
+        "authorName": { "type": "string", "description": "Comment author display name." },
+        "text": { "type": "string", "description": "Comment body text." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp." }
+      },
+      "required": ["userId", "postId", "authorName", "text", "createdAt"]
+    },
+    "DailyCheckIn": {
+      "title": "DailyCheckIn",
+      "description": "Private daily mood and wellness check-in entry keyed by YYYY-MM-DD.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Owner UID." },
+        "dateKey": { "type": "string", "description": "Calendar date in YYYY-MM-DD format." },
+        "moodKey": { "type": "string", "description": "Selected mood identifier." },
+        "moodEmoji": { "type": "string", "description": "Selected expressive emoji." },
+        "reflection": { "type": "string", "description": "Optional private personal reflection." },
+        "affirmation": { "type": "string", "description": "Daily affirmation shown or selected." },
+        "completedActivity": { "type": "string", "description": "Optional wellness activity completed." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp." },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Server timestamp." }
+      },
+      "required": ["userId", "dateKey", "moodKey", "moodEmoji", "createdAt"]
+    },
+    "UserBookmark": {
+      "title": "UserBookmark",
+      "description": "Saved Freedom Wall post or E-Library educational resource.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Owner UID." },
+        "itemType": { "type": "string", "enum": ["POST", "LIBRARY"], "description": "Bookmark entity kind." },
+        "targetId": { "type": "string", "description": "Target post or library resource ID." },
+        "title": { "type": "string", "description": "Saved item title snapshot." },
+        "subtitle": { "type": "string", "description": "Saved item subtitle or author snapshot." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp." }
+      },
+      "required": ["userId", "itemType", "targetId", "title", "createdAt"]
+    },
+    "GameProgress": {
+      "title": "GameProgress",
+      "description": "Per-user high score and sessions played for each PsyQuest psychology mini-game.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Owner UID." },
+        "gameId": { "type": "string", "description": "Mini-game identifier." },
+        "highScore": { "type": "integer", "description": "Best recorded score." },
+        "lastScore": { "type": "integer", "description": "Most recent session score." },
+        "gamesPlayed": { "type": "integer", "description": "Total completed sessions." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp." },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Server timestamp." }
+      },
+      "required": ["userId", "gameId", "highScore", "lastScore", "gamesPlayed", "createdAt"]
+    },
+    "HiddenPost": {
+      "title": "HiddenPost",
+      "description": "Marker for a post hidden from the user's Freedom Wall feed.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Owner UID." },
+        "postId": { "type": "string", "description": "Hidden post ID." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp." }
+      },
+      "required": ["userId", "postId", "createdAt"]
+    },
+    "PostReport": {
+      "title": "PostReport",
+      "description": "Moderation report submitted by an authenticated user.",
+      "type": "object",
+      "properties": {
+        "reporterUid": { "type": "string", "description": "Reporting user UID." },
+        "postId": { "type": "string", "description": "Reported post ID." },
+        "reason": { "type": "string", "description": "Moderation reason category." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp." }
+      },
+      "required": ["reporterUid", "postId", "reason", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Private user profile and streak summary owned by userId."
+    },
+    "/users/{userId}/check_ins/{dateKey}": {
+      "schema": { "$ref": "#/entities/DailyCheckIn" },
+      "description": "Private daily mood check-in history keyed by YYYY-MM-DD."
+    },
+    "/users/{userId}/bookmarks/{bookmarkId}": {
+      "schema": { "$ref": "#/entities/UserBookmark" },
+      "description": "User's saved Freedom Wall posts and E-Library resources."
+    },
+    "/users/{userId}/game_progress/{gameId}": {
+      "schema": { "$ref": "#/entities/GameProgress" },
+      "description": "User's saved scores and progress per mini-game."
+    },
+    "/users/{userId}/hidden_posts/{postId}": {
+      "schema": { "$ref": "#/entities/HiddenPost" },
+      "description": "User's hidden Freedom Wall post preferences."
+    },
+    "/posts/{postId}": {
+      "schema": { "$ref": "#/entities/FreedomWallPost" },
+      "description": "Community Freedom Wall posts."
+    },
+    "/posts/{postId}/likes/{likeUserId}": {
+      "schema": { "$ref": "#/entities/PostLike" },
+      "description": "Per-user like record on a Freedom Wall post."
+    },
+    "/posts/{postId}/comments/{commentId}": {
+      "schema": { "$ref": "#/entities/PostComment" },
+      "description": "Comments under a Freedom Wall post."
+    },
+    "/post_reports/{reportId}": {
+      "schema": { "$ref": "#/entities/PostReport" },
+      "description": "User-submitted moderation reports."
+    }
+  }
+}

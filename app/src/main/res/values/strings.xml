@@ -1,0 +1,109 @@
+<resources>
+    <string name="app_name">PsyQuest</string>
+    <string name="app_brand_wordmark">PSYQUEST</string>
+    <string name="app_tagline">Your Psychological Side Quest.</string>
+
+    <!-- Authentication & Disclaimers -->
+    <string name="auth_sign_in_with_google">Sign in with Google</string>
+    <string name="auth_checking_session">Checking session…</string>
+    <string name="auth_signing_in">Signing in…</string>
+    <string name="educational_disclaimer_short">PsyQuest provides educational psychology resources and personal wellness reflection—not clinical diagnosis or therapy.</string>
+
+    <!-- Header & Utility -->
+    <string name="cd_search">Search PsyQuest</string>
+    <string name="cd_notifications">Notifications</string>
+    <string name="cd_profile">Your Profile</string>
+    <string name="cd_close">Close</string>
+    <string name="search_sheet_title">Search PsyQuest</string>
+    <string name="search_hint">Search Freedom Wall posts or E-Library guides…</string>
+    <string name="notifications_sheet_title">Wellness &amp; Activity</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_streak">Streak</string>
+    <string name="nav_create_post">Post</string>
+    <string name="nav_games">Games</string>
+    <string name="nav_e_library">E-Library</string>
+
+    <string name="cd_nav_home">Home Freedom Wall</string>
+    <string name="cd_nav_streak">Daily Wellness Streak</string>
+    <string name="cd_nav_create_post">Create Post</string>
+    <string name="cd_nav_games">Psychology Games</string>
+    <string name="cd_nav_e_library">Educational E-Library</string>
+
+    <!-- Home / Freedom Wall -->
+    <string name="tab_my_feed">MY FEED</string>
+    <string name="tab_for_you">FOR YOU</string>
+    <string name="tab_friends">FRIENDS</string>
+    <string name="your_story_label">Your Story</string>
+    <string name="cd_create_story">Create a new Freedom Wall post</string>
+    <string name="cd_story_avatar">View story from %1$s</string>
+
+    <string name="share_thought_title">Freedom Wall</string>
+    <string name="share_thought_prompt">Share a thought, affirmation, or psychology insight…</string>
+    <string name="share_thought_cta">Create Post</string>
+
+    <string name="cd_sample_post_image">Sunlit green trees and warm rays of light</string>
+    <string name="cd_post_more">Post options</string>
+    <string name="cd_like_post">Like post</string>
+    <string name="cd_comment_post">Comments</string>
+    <string name="cd_share_post">Share post</string>
+    <string name="cd_bookmark_post">Save post</string>
+
+    <!-- Post Categories -->
+    <string name="cat_personal_thoughts">Personal Thoughts</string>
+    <string name="cat_positive_affirmations">Positive Affirmations</string>
+    <string name="cat_psychology_facts">Psychology Facts</string>
+    <string name="cat_mental_health">Mental Health Awareness</string>
+    <string name="cat_student_experiences">Student Experiences</string>
+
+    <!-- Post Options Menu & Dialogs -->
+    <string name="menu_save_post">Save Post</string>
+    <string name="menu_unsave_post">Remove Bookmark</string>
+    <string name="menu_copy_link">Copy Link</string>
+    <string name="menu_report_post">Report Post</string>
+    <string name="menu_hide_post">Hide Post</string>
+
+    <string name="snackbar_link_copied">Post link copied to clipboard</string>
+    <string name="snackbar_post_saved">Saved to your bookmarks</string>
+    <string name="snackbar_post_unsaved">Removed from bookmarks</string>
+    <string name="snackbar_post_hidden">Post hidden from this feed</string>
+    <string name="snackbar_undo">Undo</string>
+    <string name="snackbar_report_submitted">Thank you. Report submitted for review.</string>
+
+    <!-- Story Viewer -->
+    <string name="cd_prev_story">Previous story</string>
+    <string name="cd_next_story">Next story</string>
+    <string name="story_footer_community">PsyQuest Story Highlight</string>
+
+    <!-- Comments & Share Sheets -->
+    <string name="comments_title">Comments (%1$d)</string>
+    <string name="comments_supportive_notice">Be kind, supportive, and respectful on the Freedom Wall.</string>
+    <string name="comments_input_hint">Write a supportive reply…</string>
+    <string name="comments_send">Send</string>
+    <string name="comments_empty">No comments yet. Be the first to share an encouraging note.</string>
+
+    <string name="share_sheet_title">Share Post</string>
+    <string name="share_copy_link">Copy Link</string>
+    <string name="share_system_sheet">Share via Apps</string>
+    <string name="share_community_note">Share an encouraging insight or psychology note with others.</string>
+
+    <!-- Report Dialog -->
+    <string name="report_dialog_title">Report Post</string>
+    <string name="report_dialog_subtitle">Help keep the PsyQuest Freedom Wall safe, respectful, and accurate.</string>
+    <string name="report_reason_misleading">Misleading psychological claim</string>
+    <string name="report_reason_inappropriate">Inappropriate or harmful content</string>
+    <string name="report_reason_harassment">Harassment or disrespectful language</string>
+    <string name="report_reason_spam">Spam or off-topic promotion</string>
+    <string name="report_submit">Submit Report</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Empty Feed Recovery -->
+    <string name="empty_feed_title">No posts visible here right now</string>
+    <string name="empty_feed_body">You hid the posts in this view. Restore them anytime to continue exploring the Freedom Wall.</string>
+    <string name="empty_feed_restore">Restore Hidden Posts</string>
+
+    <!-- Section Headings -->
+    <string name="create_post_title">Create a Post</string>
+    <string name="e_library_preview_title">Educational Digital Library</string>
+</resources>
